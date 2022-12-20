@@ -1,16 +1,15 @@
 <template>
-  <div id="app">
         <div id="nav">
             <router-link to="/login">Home</router-link> |
             <router-link to="/about">About</router-link> |
-            <router-link to="/profile/basicinfo">Profile</router-link> |
+            <router-link to="/profile/basicinfo" v-if="role == 'patient'">Profile |</router-link>
             <router-link to="/makeAppointment" v-if="role == 'patient'"> Make Appointment |</router-link>
+            <router-link to="/myAppointments" v-if="role == 'patient'"> My Appointments |</router-link>
             <router-link to="/getAppointments" v-if="role == 'doctor'"> Get Appointment |</router-link>
             <router-link to="/getPatientTable" v-if="role == 'doctor'"> Get Patient Table |</router-link>
             
         </div>
         <router-view />
-    </div>
 </template>
 
 <script>
@@ -51,6 +50,7 @@ export default {
     height: 100%;
     color: #2c3e50;
     background-color:cadetblue;
+    display: block;
 }
 #nav {
     padding: 30px;
