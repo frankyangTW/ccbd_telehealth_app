@@ -1,0 +1,14 @@
+version: 0.1
+phases:
+  pre_build:
+    commands:
+     - echo Installing NPM dependencies
+     - npm install
+  build:
+    commands:
+     - echo Build start on `date`
+     - npm run build
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build
